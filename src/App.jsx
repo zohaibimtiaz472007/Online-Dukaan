@@ -1,5 +1,5 @@
 import {
-  BrowserRouter as Router,
+  HashRouter,
   Route,
   Routes,
 } from "react-router-dom";
@@ -24,7 +24,7 @@ import CategoryPage from "./pages/category/CategoryPage";
 const App = () => {
   return (
     <MyState>
-      <Router>
+      <HashRouter>
         <ScrollTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -57,7 +57,7 @@ const App = () => {
           } />
         </Routes>
         <Toaster />
-      </Router>
+      </HashRouter>
     </MyState>
   );
 }
