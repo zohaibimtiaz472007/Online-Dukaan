@@ -1,15 +1,16 @@
 /* eslint-disable react/prop-types */
+import React from 'react';
 import {
     Button,
     Dialog,
     DialogBody,
 } from "@material-tailwind/react";
-import { useState } from "react";
 
-const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
-    const [open, setOpen] = useState(false);
+const BuyNowModal = ({ addressInfo = {}, setAddressInfo, buyNowFunction }) => {
+    const [open, setOpen] = React.useState(false);
 
     const handleOpen = () => setOpen(!open);
+
     return (
         <>
             <Button
@@ -19,13 +20,13 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
             >
                 Buy now
             </Button>
-            <Dialog open={open} handler={handleOpen} className=" bg-pink-50">
+            <Dialog open={open} handler={handleOpen} className="bg-pink-50">
                 <DialogBody className="">
                     <div className="mb-3">
                         <input
                             type="text"
                             name="name"
-                            value={addressInfo.name}
+                            value={addressInfo.name || ''}
                             onChange={(e) => {
                                 setAddressInfo({
                                     ...addressInfo,
@@ -40,7 +41,7 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                         <input
                             type="text"
                             name="address"
-                            value={addressInfo.address}
+                            value={addressInfo.address || ''}
                             onChange={(e) => {
                                 setAddressInfo({
                                     ...addressInfo,
@@ -56,7 +57,7 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                         <input
                             type="number"
                             name="pincode"
-                            value={addressInfo.pincode}
+                            value={addressInfo.pincode || ''}
                             onChange={(e) => {
                                 setAddressInfo({
                                     ...addressInfo,
@@ -64,7 +65,7 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                                 })
                             }}
                             placeholder='Enter your pincode'
-                            className='bg-pink-50 border border-pink-200 px-2 py-2 w-full rounded-md outline-none text-pink-600 text-pink-600 placeholder-pink-300'
+                            className='bg-pink-50 border border-pink-200 px-2 py-2 w-full rounded-md outline-none text-pink-600 placeholder-pink-300'
                         />
                     </div>
 
@@ -72,21 +73,20 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                         <input
                             type="text"
                             name="mobileNumber"
-                            value={addressInfo.mobileNumber}
+                            value={addressInfo.mobileNumber || ''}
                             onChange={(e) => {
                                 setAddressInfo({
                                     ...addressInfo,
                                     mobileNumber: e.target.value
                                 })
                             }}
-                            placeholder='Enter your mobileNumber'
+                            placeholder='Enter your mobile number'
                             className='bg-pink-50 border border-pink-200 px-2 py-2 w-full rounded-md outline-none text-pink-600 placeholder-pink-300'
                         />
                     </div>
 
                     <div className="">
                         <Button
-
                             type="button"
                             onClick={() => {
                                 handleOpen();
@@ -97,7 +97,6 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                             Buy now
                         </Button>
                     </div>
-
                 </DialogBody>
             </Dialog>
         </>

@@ -14,7 +14,7 @@ const UserDashboard = () => {
     // console.log(user)
     return (
         <Layout>
-            <div className=" container mx-auto px-4 py-5 lg:py-8">
+            <div className=" container mx-auto px-4 py-20 lg:py-15">
                 {/* Top  */}
                 <div className="top ">
                     {/* main  */}

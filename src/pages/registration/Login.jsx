@@ -67,27 +67,25 @@ const Login = () => {
             setLoading(false);
             toast.error("Login Failed");
         }
-
     }
     return (
-        <div className='flex justify-center items-center h-screen'>
+        <div className='flex justify-center items-center h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500'>
             {loading && <Loader />}
             {/* Login Form  */}
-            <div className="login_Form bg-pink-50 px-8 py-6 border border-pink-100 rounded-xl shadow-md">
+            <div className="login_Form bg-white bg-opacity-60 px-1 lg:px-8 py-6 border border-white backdrop-filter backdrop-blur-lg rounded-xl shadow-lg">
 
                 {/* Top Heading  */}
                 <div className="mb-5">
-                    <h2 className='text-center text-2xl font-bold text-pink-500 '>
+                    <h2 className='text-center text-3xl font-extrabold text-white'>
                         Login
                     </h2>
                 </div>
 
-                {/* Input One  */}
+                {/* Input Email */}
                 <div className="mb-3">
                     <input
                         type="email"
                         name="email"
-                        placeholder='Email Address'
                         value={userLogin.email}
                         onChange={(e) => {
                             setUserLogin({
@@ -95,15 +93,15 @@ const Login = () => {
                                 email: e.target.value
                             })
                         }}
-                        className='bg-pink-50 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
+                        placeholder='Email Address'
+                        className='bg-transparent border border-white bg-opacity-30 px-2 py-2 w-96 rounded-md outline-none placeholder-white text-white'
                     />
                 </div>
 
-                {/* Input Two  */}
+                {/* Input Password */}
                 <div className="mb-5">
                     <input
                         type="password"
-                        placeholder='Password'
                         value={userLogin.password}
                         onChange={(e) => {
                             setUserLogin({
@@ -111,23 +109,24 @@ const Login = () => {
                                 password: e.target.value
                             })
                         }}
-                        className='bg-pink-50 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
+                        placeholder='Password'
+                        className='bg-transparent border border-white bg-opacity-30 px-2 py-2 w-96 rounded-md outline-none placeholder-white text-white'
                     />
                 </div>
 
-                {/* Signup Button  */}
+                {/* Login Button */}
                 <div className="mb-5">
                     <button
-                        type='button'
                         onClick={userLoginFunction}
-                        className='bg-pink-500 hover:bg-pink-600 w-full text-white text-center py-2 font-bold rounded-md '
+                        type='button'
+                        className='bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 w-full text-white text-center py-2 font-bold rounded-md transition duration-300 ease-in-out transform hover:scale-105'
                     >
                         Login
                     </button>
                 </div>
 
                 <div>
-                    <h2 className='text-black'>Don't Have an account <Link className=' text-pink-500 font-bold' to={'/signup'}>Signup</Link></h2>
+                    <h2 className='text-white'>Don't Have an account? <Link className='text-white font-bold underline hover:text-indigo-300 transition duration-300' to={'/signup'}>Signup</Link></h2>
                 </div>
 
             </div>
@@ -136,4 +135,3 @@ const Login = () => {
 }
 
 export default Login;
-
